@@ -42,9 +42,18 @@ function strongAttack(){
  turn('STRONG ATTACK');
  endRound()
 }
-function heal(){
+function heal(){ 
+
+let healValue;
+if($player_Health >= DEFAULT_HEALTH - DEFAULT_HEAL){
+    alert('you cant have more that 100 health dum dum')
+    healValue = DEFAULT_HEALTH - $player_Health;
+} else healValue = DEFAULT_HEAL
+
 increasePlayerHealth(DEFAULT_HEAL);
-}        
+$player_Health += DEFAULT_HEAL;
+endRound();
+}
 
 attackBtn.addEventListener('click', attack);
 strongAttackBtn.addEventListener('click', strongAttack);
